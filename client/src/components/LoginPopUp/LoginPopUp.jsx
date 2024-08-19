@@ -2,10 +2,12 @@ import React, { useState } from 'react'
 import './LoginPopUp.css'
 import {assets} from '../../assets/assets'
 import PropTypes from 'prop-types'
+import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
 const LoginPopUp = ({setShowLogin}) => {
 
     const [currState, setCurrState] = useState("Login")
+    const [showPassword, setShowPassword] = useState(false);
 
     return (
         <div className='login-popup'>
@@ -17,7 +19,12 @@ const LoginPopUp = ({setShowLogin}) => {
                 <div className="login-popup-inputs">
                     {currState ==="Login" ? <></> : <input type="text" placeholder='Your name' required />}
                     <input type="email" placeholder='Your email' required />
-                    <input type="password" placeholder='Your password' required />
+                    <div className="password-input-container">
+                        <input type={showPassword ? "text" : "password"} placeholder='Your password' required />
+                        <span onClick={() => setShowPassword(!showPassword)} className="eye-icon">
+                            {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+                        </span>
+                    </div>
                 </div>
                 {currState === "Sign Up" ? <div className="login-popup-condition">
                     <input type="checkbox" required />
