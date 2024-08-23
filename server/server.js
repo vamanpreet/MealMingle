@@ -31,6 +31,3 @@ app.use("/api/order", orderRouter)
 app.listen(port, () => {
     console.log(`MealMingle listening at http://localhost:${port}`)
 })
-
-// mongodb+srv://vamanpreet2110:vamanpreet60@cluster0.652l5.mongodb.net/?
-// retryWrites=true&w=majority&appName=Cluster0
